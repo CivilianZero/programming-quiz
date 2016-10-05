@@ -1,1 +1,1 @@
-var prompt = require(prompt-sync)
+var prompt = require("prompt-sync")();
