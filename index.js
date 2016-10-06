@@ -59,10 +59,10 @@ var royBatty = [
     {
         question: "Which of the following changes the default dot on a <li> inside a <ul>?",
         choices: true,
-        choice1: "list-type",
-        choice2: "margin: 0 auto",
-        choice3: "list-style-type",
-        choice4: "style-list",
+        choice1: "A. list-type",
+        choice2: "B. margin: 0 auto",
+        choice3: "C. list-style-type",
+        choice4: "D. style-list",
         answer: "C",
         difficultyMod: 1,
         asked: false
@@ -70,10 +70,10 @@ var royBatty = [
     {
         question: "What does the p in <p> stand for?",
         choices: true,
-        choice1: "pants",
-        choice2: "pacific",
-        choice3: "paragraph",
-        choice4: "pez-dispenser",
+        choice1: "A. pants",
+        choice2: "B. pacific",
+        choice3: "C. paragraph",
+        choice4: "D. pez-dispenser",
         answer: "C",
         difficultyMod: 1,
         asked: false
@@ -119,13 +119,13 @@ var royBatty = [
         asked: false
     },
     {
-        question: "easy test question",
+        question: "What is the default display property of a <p> tag?",
         choices: true,
-        choice1:,
-        choice2:,
-        choice3:,
-        choice4:,
-        answer: "YES",
+        choice1: "A. inline-block",
+        choice2: "B. block",
+        choice3: "C. inline",
+        choice4: "D. static",
+        answer: "B",
         difficultyMod: 1,
         asked: false
     }
@@ -176,7 +176,7 @@ var hardLength = leonKowalski.length,
     easy = true,
     question;
 
-for (i = 0; doneYet < 15;) {
+for (i = 0; doneYet < 15; i++) {
 
     if (howGood < -6) {
         doneYet = 9000;
@@ -215,7 +215,7 @@ for (i = 0; doneYet < 15;) {
             console.log(quiz.choice3);
             console.log(quiz.choice4);
         }
-        question = prompt("--> ").toUpperCase();
+        question = prompt("-->").toUpperCase();
 
         if (question === quiz.answer) {
             howGood += quiz.difficultyMod;
@@ -223,10 +223,23 @@ for (i = 0; doneYet < 15;) {
             doneYet++;
         } else {
             howGood -= quiz.difficultyMod;
-            console.log("You big dummy.");
+            console.log("...nope");
             doneYet++;
         }
     }
     quiz.asked = true;
-    i = Math.floor(Math.random * quiz.length);
+}
+
+console.log("Prepare to receive your objective score:");
+
+if(howGood > 14) {
+    console.log("What are you, some kind of GEEN-yus?");
+} else if(howGood > 9) {
+    console.log("One less than best.");
+} else if(howGood > 4) {
+    console.log("No one will notice you.");
+} else if(howGood > -1) {
+    console.log("Do they let you dress yourself?");
+} else {
+    console.log("Welcome...to the bottom of the barrel.");
 }
