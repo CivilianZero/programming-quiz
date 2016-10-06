@@ -2,13 +2,13 @@ var prompt = require("prompt-sync")();
 
 var royBatty = [
     {
-        question: "Which of the following is awesome?",
+        question: "div:last-child <-- what is this thing on the end of div?",
         choices: true,
-        choice1: "A. Hot dogs",
-        choice2: "B. Red and yellow",
+        choice1: "A. pseudoscience",
+        choice2: "B. pseudoclass",
         choice3: "C. Socks",
-        choice4: "D. The next sun to us",
-        answer: "ALL THE ABOVE",
+        choice4: "D. Sudowudo",
+        answer: "B",
         difficultyMod: 1,
         asked: false
     },
@@ -168,19 +168,21 @@ var leonKowalski = [
         difficultyMod: 2,
         asked: false
     }
-]
+];
 
 var hardLength = leonKowalski.length,
     howGood = 0,
     doneYet = 0,
     easy = true,
-    question;
+    question,
+    quiz,
+    i;
 
 for (i = 0; doneYet < 15; i++) {
 
     if (howGood < -6) {
-        doneYet = 9000;
         console.log("YOU DIED");
+        break;
     }
 
     if (howGood > 2 && hardLength > 0) {
@@ -208,7 +210,7 @@ for (i = 0; doneYet < 15; i++) {
     if (quiz.asked === true) {
         // Skip question
     } else {
-        console.log(quiz.question)
+        console.log(quiz.question);
         if (quiz.choices === true) {
             console.log(quiz.choice1);
             console.log(quiz.choice2);
@@ -232,14 +234,18 @@ for (i = 0; doneYet < 15; i++) {
 
 console.log("Prepare to receive your objective score:");
 
-if(howGood > 14) {
-    console.log("What are you, some kind of GEEN-yus?");
-} else if(howGood > 9) {
-    console.log("One less than best.");
-} else if(howGood > 4) {
-    console.log("No one will notice you.");
-} else if(howGood > -1) {
-    console.log("Do they let you dress yourself?");
-} else {
-    console.log("Welcome...to the bottom of the barrel.");
+function grade() {
+    if (howGood > 14) {
+        console.log("What are you, some kind of GEEN-yus?");
+    } else if (howGood > 9) {
+        console.log("One less than best.");
+    } else if (howGood > 4) {
+        console.log("No one will notice you.");
+    } else if (howGood > -1) {
+        console.log("Do they let you dress yourself?");
+    } else {
+        console.log("Welcome...to the bottom of the barrel.");
+    }
 }
+
+setTimeout(grade, 3000);
