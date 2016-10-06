@@ -8,7 +8,7 @@ var royBatty = [
         choice2: "B. pseudoclass",
         choice3: "C. Socks",
         choice4: "D. Sudowudo",
-        answer: "B",
+        answer: "B. PSEUDOCLASS",
         difficultyMod: 1,
         asked: false
     },
@@ -19,7 +19,7 @@ var royBatty = [
         choice2: "B. Communal Style Sorcerers",
         choice3: "C. Concave System Stuff",
         choice4: "D. Cascading Style Sheets",
-        answer: "D",
+        answer: "D. CASCADING STYLE SHEETS",
         difficultyMod: 1,
         asked: false
     },
@@ -30,7 +30,7 @@ var royBatty = [
         choice2: "B. git onit",
         choice3: "C. git init",
         choice4: "D. git toit",
-        answer: "C",
+        answer: "C. GIT INIT",
         difficultyMod: 1,
         asked: false
     },
@@ -41,7 +41,7 @@ var royBatty = [
         choice2: "B. <div>",
         choice3: "C. <aside>",
         choice4: "D. <header>",
-        answer: "B",
+        answer: "B. <DIV>",
         difficultyMod: 1,
         asked: false
     },
@@ -52,7 +52,7 @@ var royBatty = [
         choice2: "B. Tells CSS what HTML it applies to",
         choice3: "C. Chooses Javascript properties",
         choice4: "D. Always chooses D",
-        answer: "B",
+        answer: "B. TELLS CSS WHAT HTML IT APPLIES TO",
         difficultyMod: 1,
         asked: false
     },
@@ -63,7 +63,7 @@ var royBatty = [
         choice2: "B. margin: 0 auto",
         choice3: "C. list-style-type",
         choice4: "D. style-list",
-        answer: "C",
+        answer: "C. LIST-STYLE-TYPE",
         difficultyMod: 1,
         asked: false
     },
@@ -74,7 +74,7 @@ var royBatty = [
         choice2: "B. pacific",
         choice3: "C. paragraph",
         choice4: "D. pez-dispenser",
-        answer: "C",
+        answer: "C. PARAGRAPH",
         difficultyMod: 1,
         asked: false
     },
@@ -85,7 +85,7 @@ var royBatty = [
         choice2: "B. Blue",
         choice3: "C. Green",
         choice4: "D. Five",
-        answer: "B",
+        answer: "B. BLUE",
         difficultyMod: 1,
         asked: false
     },
@@ -96,7 +96,7 @@ var royBatty = [
         choice2: "B. Hypertext Markup Language",
         choice3: "C. Hyper Textual Markup Look",
         choice4: "D. Hyperlinks and Text Making Lines",
-        answer: "B",
+        answer: "B. HYPERTEXT MARKUP LANGUAGE",
         difficultyMod: 1,
         asked: false
     },
@@ -114,7 +114,7 @@ var royBatty = [
         choice2: "B. <img href='someplace'>image.jpg</img>",
         choice3: "C. <link href='someplace'>image.jpg</link>",
         choice4: "D. <img src='here.com'>",
-        answer: "A",
+        answer: "A. <IMG HREF=IMAGE.JPG ALT='SOMEPLACE'>",
         difficultyMod: 1,
         asked: false
     },
@@ -125,7 +125,7 @@ var royBatty = [
         choice2: "B. block",
         choice3: "C. inline",
         choice4: "D. static",
-        answer: "B",
+        answer: "B. BLOCK",
         difficultyMod: 1,
         asked: false
     }
@@ -139,7 +139,7 @@ var leonKowalski = [
         choice2: "B. right top left bottom",
         choice3: "C. bottom bottom bottom bottom",
         choice4: "D. top right bottom left",
-        answer: "D",
+        answer: "D. TOP RIGHT BOTTOM LEFT",
         difficultyMod: 2,
         asked: false
     },
@@ -150,7 +150,7 @@ var leonKowalski = [
         choice2: "B. #right + .wrong div",
         choice3: "C. section > div + div > p span",
         choice4: "D. a tyrannosaurus tex",
-        answer: "A",
+        answer: "A. #WRONG > .RIGHT + DIV P",
         difficultyMod: 2,
         asked: false
     },
@@ -162,9 +162,13 @@ var leonKowalski = [
         asked: false
     },
     {
-        question: "Tell me, in single words, only the good things that come in to your mind about your mother. ",
-        choices: false,
-        answer: "LET ME TELL YOU ABOUT MY MOTHER",
+        question: "What is the correct way to write a JavaScript array?",
+        choices: true,
+        choices1: "A. var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
+        choices2: "B. var colors = (1:'red', 2:'green', 3:'blue')",
+        choices3: "C. var colors = ['red', 'green', 'blue']",
+        choices4: "D. var colors = 'red', 'green', 'blue'",
+        answer: "C. VAR COLORS = ['RED', 'GREEN', 'BLUE']",
         difficultyMod: 2,
         asked: false
     }
@@ -176,9 +180,9 @@ var hardLength = leonKowalski.length,
     easy = true,
     question,
     quiz,
-    i;
+    correct = 0;
 
-for (i = 0; doneYet < 15; i++) {
+for (var i = 0; doneYet < 15; i++) {
 
     if (howGood < -6) {
         console.log("YOU DIED");
@@ -219,13 +223,14 @@ for (i = 0; doneYet < 15; i++) {
         }
         question = prompt("-->").toUpperCase();
 
-        if (question === quiz.answer) {
+        if (question === quiz.answer[0] || question === quiz.answer) {
             howGood += quiz.difficultyMod;
             console.log("You're smarter than you look!");
             doneYet++;
+            correct++;
         } else {
             howGood -= quiz.difficultyMod;
-            console.log("...nope");
+            console.log("...nope, the correct answer was: " + quiz.answer);
             doneYet++;
         }
     }
@@ -246,6 +251,7 @@ function grade() {
     } else {
         console.log("Welcome...to the bottom of the barrel.");
     }
+    console.log(correct, 15 / correct);
 }
 
 setTimeout(grade, 3000);
